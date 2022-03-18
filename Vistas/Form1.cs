@@ -30,6 +30,7 @@ namespace AppRepaso
             listBox1.DataSource = lista;
             listBox1.DisplayMember = "nombre";
             listBox1.ValueMember = "idEquipo";
+            //añadir evento, poner poraqui mejor, 
             this.listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
 
 
@@ -43,8 +44,10 @@ namespace AppRepaso
 
             //datasource, lista de textos, pero tambien puede ser una lista de objetos
             //si tengo lista de objetos , displaymember  es lo que yo veo en la pantalla y value member el valor que quiero quedarme para trabajar.
-            //selected index, la posicion, si admite coger varios es items  
-            dataGridView1.DataSource = ControladorJugadores.GetJugadores(idEquipo);
+            //selected index, la posicion, si admite coger varios es items
+            //si se pone selected value hay que castear
+            listaJugadores = ControladorJugadores.GetJugadores(idEquipo);
+            this.dataGridView1.DataSource = listaJugadores;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,10 +56,21 @@ namespace AppRepaso
             
         }
 
-        public void cargarDataGrid()
+       
+
+        private void button1_Click(object sender, EventArgs e)
         {
           
+           listaJugadores.Sort((a,b) => a.nombre.CompareTo(b.nombre));//ordenar
+            dataGridView1.Refresh();
+           dataGridView1.DataSource = listaJugadores;
+
+            //dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);, necesitamos blinfing list
+
+
+
         }
-        
+
+      
     }
 }
