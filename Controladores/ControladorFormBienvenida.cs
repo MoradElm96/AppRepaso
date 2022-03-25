@@ -10,22 +10,24 @@ namespace AppRepaso.Controladores
     public class ControladorFormBienvenida
     {
 
-        public static string  leerArchivo() 
+        public static List<string>  leerArchivo() 
         {
             string color;
             string texto;
             string imagen;
 
+            List<string> listaParametros = new List<string>();
+
+
             try
             {
+                //lee el fichero texto
                 string[] lineas = System.IO.File.ReadAllLines(@"Resources/parametros.txt");
                 if (lineas.Length > 0)
                 {
-                     color = lineas[0];
-                     texto = lineas[1];
-                     imagen = lineas[2];
-
-
+                    listaParametros.Add(color = lineas[0]);
+                    listaParametros.Add(texto = lineas[1]);
+                    listaParametros.Add(imagen = lineas[2]);
                 }
             }
 
@@ -33,7 +35,11 @@ namespace AppRepaso.Controladores
             {
                 Console.WriteLine("Error al leer fichero " + e.Message);
             }
+
+            return listaParametros;
         
         }
+
+
     }
 }
