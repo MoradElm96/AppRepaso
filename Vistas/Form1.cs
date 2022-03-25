@@ -62,15 +62,63 @@ namespace AppRepaso
         {
           
            listaJugadores.Sort((a,b) => a.nombre.CompareTo(b.nombre));//ordenar
-            dataGridView1.Refresh();
+           dataGridView1.Refresh();
            dataGridView1.DataSource = listaJugadores;
 
             //dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);, necesitamos blinfing list
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+            int contadorCambiados = 0;
+           foreach (DataGridViewRow fila  in dataGridView1.SelectedRows) {
+
+                if (ControladorJugadores.IncrementarSueldo(fila.Cells[0].Value.ToString()))
+                {
+                    contadorCambiados++;
+
+                }
+
+
+            }
+            MessageBox.Show("se han actualizado " + contadorCambiados.ToString() + " jugadores");
+
+            ListBox1_SelectedIndexChanged(sender,e);
 
 
         }
 
-      
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //borra los jugadores selecionados
+           
+            int contadorCambiados = 0;
+            foreach (DataGridViewRow fila in dataGridView1.SelectedRows)
+            {
+                if (MessageBox.Show("seguro que deseas borrar?","BORRADO",MessageBoxButtons.OKCancel) == DialogResult.OK) {
+
+                 if (ControladorJugadores.borrarjugadores(fila.Cells[0].Value.ToString()))
+                {
+                    contadorCambiados++;
+
+                }
+                MessageBox.Show("se han eliminado " + contadorCambiados.ToString() + " jugadores");
+
+            cargarEquipos();
+                }
+
+            }
+
+            
+
+               
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(ControladorJugadores.sumarSueldos());
+        }
     }
 }
