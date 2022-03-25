@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppRepaso.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,11 @@ namespace AppRepaso
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //importante sacarlo fuera del run
+            //sino no funciona
+            FormularioBienvenida form = new FormularioBienvenida();
+            form.ShowDialog();
+            Application.Run();
         }
     }
 }
