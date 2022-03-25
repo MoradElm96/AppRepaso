@@ -12,9 +12,7 @@ namespace AppRepaso.Controladores
 
         public static List<string>  leerArchivo() 
         {
-            string color;
-            string texto;
-            string imagen;
+          
 
             List<string> listaParametros = new List<string>();
 
@@ -25,9 +23,9 @@ namespace AppRepaso.Controladores
                 string[] lineas = System.IO.File.ReadAllLines(@"Resources/parametros.txt");
                 if (lineas.Length > 0)
                 {
-                    listaParametros.Add(color = lineas[0]);
-                    listaParametros.Add(texto = lineas[1]);
-                    listaParametros.Add(imagen = lineas[2]);
+                    listaParametros.Add(lineas[0]);
+                    listaParametros.Add(lineas[1]);
+                    listaParametros.Add(lineas[2]);
                 }
             }
 
