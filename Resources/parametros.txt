@@ -1,0 +1,3 @@
+color=red
+texto=Este sistema pertenece a la empresa RRRR, cualquier acceso indebido será perseguido.
+imagen=./imagenes/foto.png
