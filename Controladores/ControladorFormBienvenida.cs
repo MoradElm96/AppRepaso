@@ -20,7 +20,8 @@ namespace AppRepaso.Controladores
             try
             {
                 //lee el fichero texto
-                string[] lineas = System.IO.File.ReadAllLines(@"Resources/parametros.txt");
+               
+                string[] lineas = System.IO.File.ReadAllLines("../../Resources/parametros.txt");
                 if (lineas.Length > 0)
                 {
                     listaParametros.Add(lineas[0]);

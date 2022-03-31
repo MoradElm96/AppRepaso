@@ -35,5 +35,35 @@ namespace AppRepaso.Vistas
             Application.Exit();
 
         }
+
+        private void FormularioBienvenida_Load(object sender, EventArgs e)
+        {
+            List<String> parametros = Controladores.ControladorFormBienvenida.leerArchivo();
+            //carga la imagen desde la url de la lista leida obtenida a traves del fichero texto
+
+            
+            int finalColor = parametros[0].Length;//22
+         
+            int finalTexto = parametros[1].Length;//89
+            
+            int finalImagen = parametros[2].Length;//37
+           
+            //para saber longitud final de la cadena
+
+            
+            string urlimagen = parametros[2].Substring(7,30);
+            
+            pictureBox1.Load(urlimagen);
+            //como usar image from file
+           
+
+
+            label1.Text = parametros[1].Substring(6,83); 
+           
+           
+            this.BackColor = (Color)new ColorConverter().ConvertFromString(parametros[0].Substring(6,16));
+
+
+        }
     }
 }

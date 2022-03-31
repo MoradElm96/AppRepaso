@@ -35,6 +35,7 @@ namespace AppRepaso.Vistas
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@ namespace AppRepaso.Vistas
             this.toolStripLabel2,
             this.toolStripLabel3,
             this.toolStripLabel4,
-            this.toolStripLabel5});
+            this.toolStripLabel5,
+            this.toolStripLabel6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -69,6 +71,7 @@ namespace AppRepaso.Vistas
             this.toolStripLabel3.Name = "toolStripLabel3";
             this.toolStripLabel3.Size = new System.Drawing.Size(60, 22);
             this.toolStripLabel3.Text = "Jugadores";
+            this.toolStripLabel3.Click += new System.EventHandler(this.toolStripLabel3_Click);
             // 
             // toolStripLabel4
             // 
@@ -81,6 +84,13 @@ namespace AppRepaso.Vistas
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel5.Text = "Salir";
+            // 
+            // toolStripLabel6
+            // 
+            this.toolStripLabel6.Name = "toolStripLabel6";
+            this.toolStripLabel6.Size = new System.Drawing.Size(41, 22);
+            this.toolStripLabel6.Text = "Form1";
+            this.toolStripLabel6.Click += new System.EventHandler(this.toolStripLabel6_Click);
             // 
             // FormularioPrincipal
             // 
@@ -105,5 +115,6 @@ namespace AppRepaso.Vistas
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel6;
     }
 }
