@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppRepaso.Controladores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,7 +30,7 @@ namespace AppRepaso.Vistas
             FrmJugadores form1;
 
 
-            if (!EstaFormularioAbierto(typeof(FrmJugadores)))
+            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmJugadores)))
             {
                 form1 = new FrmJugadores();
                 form1.MdiParent = this;
@@ -39,7 +40,7 @@ namespace AppRepaso.Vistas
             }
             else
             {
-                form1 = (FrmJugadores)RecuperarFormulario(typeof(FrmJugadores));
+                form1 = (FrmJugadores)ControladorFormularios.RecuperarFormulario(typeof(FrmJugadores));
                 if (form1.WindowState == FormWindowState.Minimized)
                 {
                     form1.WindowState = FormWindowState.Normal;
@@ -51,27 +52,28 @@ namespace AppRepaso.Vistas
             //Si se pulsa la opción Jugadores se debe mostrar el formulario del DIA 1 maximizado. Si el formulario ya estaba abierto no se debe abrir uno nuevo
         }
 
-        public static bool EstaFormularioAbierto(Type tipo)
+        private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form frm in Application.OpenForms)//lista 
+            FrmExportarEquipos frmExportarEquipos;
+
+            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmExportarEquipos)))
             {
-                if (frm.GetType() == tipo)
-                {
-                    return true;
-                }
+                frmExportarEquipos = new FrmExportarEquipos();
+                frmExportarEquipos.MdiParent = this;
+                //para maximizar
+                frmExportarEquipos.WindowState = FormWindowState.Maximized;
+                frmExportarEquipos.Show();
             }
-            return false;
-        }
-        public static Form RecuperarFormulario(Type tipo)
-        {
-            foreach (Form frm in Application.OpenForms)
+            else
             {
-                if (frm.GetType() == tipo)
+                frmExportarEquipos = (FrmExportarEquipos)ControladorFormularios.RecuperarFormulario(typeof(FrmExportarEquipos));
+                if (frmExportarEquipos.WindowState == FormWindowState.Minimized)
                 {
-                    return frm;
+                    frmExportarEquipos.WindowState = FormWindowState.Normal;
                 }
+                frmExportarEquipos.Show();
+                frmExportarEquipos.Focus();
             }
-            return null;
         }
     }
 }

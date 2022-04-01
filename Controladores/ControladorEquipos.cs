@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace AppRepaso.Controladores
 {
@@ -45,6 +47,29 @@ namespace AppRepaso.Controladores
             }
             return listaDeEquipos;
         }
+
+
+        public static bool guardarXml(List<Equipo> lista, String ruta)
+        {
+            try
+            {
+                using (var writer = new StreamWriter(ruta))
+                {
+                    // Do this to avoid the serializer inserting default XML namespaces.
+                    var namespaces = new XmlSerializerNamespaces();
+                    namespaces.Add(string.Empty, string.Empty);
+
+                    var serializer = new XmlSerializer(lista.GetType());
+                    serializer.Serialize(writer, lista, namespaces);
+                }
+            }
+            catch (Exception e) { }
+
+            return true;
+
+
+        }
+
 
     }
 }

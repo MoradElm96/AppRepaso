@@ -93,17 +93,24 @@
     <Compile Include="Clases\Jugador.cs" />
     <Compile Include="Controladores\ControladorEquipos.cs" />
     <Compile Include="Controladores\ControladorFormBienvenida.cs" />
+    <Compile Include="Controladores\ControladorFormularios.cs" />
     <Compile Include="Controladores\ControladorJugadores.cs" />
     <Compile Include="esportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>esportDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\Form1.cs">
+    <Compile Include="Vistas\FrmExportarEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vistas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Vistas\FrmExportarEquipos.Designer.cs">
+      <DependentUpon>FrmExportarEquipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FrmJugadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmJugadores.Designer.cs">
+      <DependentUpon>FrmJugadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,8 +132,11 @@
     <Compile Include="Vistas\FormularioPrincipal.Designer.cs">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vistas\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Vistas\FrmExportarEquipos.resx">
+      <DependentUpon>FrmExportarEquipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmJugadores.resx">
+      <DependentUpon>FrmJugadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
