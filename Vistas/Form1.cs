@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace AppRepaso
 {
-    public partial class Form1 : Form
+    public partial class FrmJugadores : Form
     {
         List<Equipo> lista;
         List<Jugador> listaJugadores;
 
-        public Form1()
+        public FrmJugadores()
         {
             InitializeComponent();
             

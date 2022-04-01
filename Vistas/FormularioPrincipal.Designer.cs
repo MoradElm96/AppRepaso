@@ -33,9 +33,11 @@ namespace AppRepaso.Vistas
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripSplitButton();
+            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,8 +48,7 @@ namespace AppRepaso.Vistas
             this.toolStripLabel2,
             this.toolStripLabel3,
             this.toolStripLabel4,
-            this.toolStripLabel5,
-            this.toolStripLabel6});
+            this.toolStripLabel5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -73,24 +74,39 @@ namespace AppRepaso.Vistas
             this.toolStripLabel3.Text = "Jugadores";
             this.toolStripLabel3.Click += new System.EventHandler(this.toolStripLabel3_Click);
             // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(49, 22);
-            this.toolStripLabel4.Text = "Equipos";
-            // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel5.Text = "Salir";
             // 
-            // toolStripLabel6
+            // toolStripLabel4
             // 
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(41, 22);
-            this.toolStripLabel6.Text = "Form1";
-            this.toolStripLabel6.Click += new System.EventHandler(this.toolStripLabel6_Click);
+            this.toolStripLabel4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportarToolStripMenuItem,
+            this.importarToolStripMenuItem,
+            this.gestionarToolStripMenuItem});
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(65, 22);
+            this.toolStripLabel4.Text = "Equipos";
+            // 
+            // exportarToolStripMenuItem
+            // 
+            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // importarToolStripMenuItem
+            // 
+            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importarToolStripMenuItem.Text = "Importar";
+            // 
+            // gestionarToolStripMenuItem
+            // 
+            this.gestionarToolStripMenuItem.Name = "gestionarToolStripMenuItem";
+            this.gestionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionarToolStripMenuItem.Text = "Gestionar";
             // 
             // FormularioPrincipal
             // 
@@ -98,6 +114,7 @@ namespace AppRepaso.Vistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStrip1);
+            this.IsMdiContainer = true;
             this.Name = "FormularioPrincipal";
             this.Text = "FormularioPrincipal";
             this.toolStrip1.ResumeLayout(false);
@@ -113,8 +130,10 @@ namespace AppRepaso.Vistas
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel6;
+        private System.Windows.Forms.ToolStripSplitButton toolStripLabel4;
+        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem;
     }
 }

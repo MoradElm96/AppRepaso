@@ -19,37 +19,41 @@ namespace AppRepaso.Vistas
 
         private void toolStripLabel6_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            FrmJugadores form1 = new FrmJugadores();
             form1.Show();
         }
 
         private void toolStripLabel3_Click(object sender, EventArgs e)
         {
-            /*
-            Usuarios usuarios;
-            if (!Globales.EstaFormularioAbierto(typeof(Usuarios)))
+
+            FrmJugadores form1;
+
+
+            if (!EstaFormularioAbierto(typeof(FrmJugadores)))
             {
-                usuarios = new Usuarios();
-                usuarios.MdiParent = this;
-                usuarios.Show();
+                form1 = new FrmJugadores();
+                form1.MdiParent = this;
+                //para maximizar
+                form1.WindowState = FormWindowState.Maximized;
+                form1.Show();
             }
             else
             {
-                usuarios = (Usuarios)Globales.RecuperarFormulario(typeof(Usuarios));
-                if (usuarios.WindowState == FormWindowState.Minimized)
+                form1 = (FrmJugadores)RecuperarFormulario(typeof(FrmJugadores));
+                if (form1.WindowState == FormWindowState.Minimized)
                 {
-                    usuarios.WindowState = FormWindowState.Normal;
+                    form1.WindowState = FormWindowState.Normal;
                 }
-                usuarios.Show();
-                usuarios.Focus();
+                form1.Show();
+                form1.Focus();
             }
-            */
+            
             //Si se pulsa la opción Jugadores se debe mostrar el formulario del DIA 1 maximizado. Si el formulario ya estaba abierto no se debe abrir uno nuevo
         }
 
         public static bool EstaFormularioAbierto(Type tipo)
         {
-            foreach (Form frm in Application.OpenForms)
+            foreach (Form frm in Application.OpenForms)//lista 
             {
                 if (frm.GetType() == tipo)
                 {

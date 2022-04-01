@@ -51,17 +51,17 @@ namespace AppRepaso.Vistas
             //para saber longitud final de la cadena
 
             
-            string urlimagen = parametros[2].Substring(7,30);
+            string urlimagen = parametros[2].Substring(7);
             
             pictureBox1.Load(urlimagen);
             //como usar image from file
            
+            //sub string se puede poner solo el primer caracter hasta el final, tiene un constructor no hace falta indicarle el otro parametro
 
-
-            label1.Text = parametros[1].Substring(6,83); 
+            label1.Text = parametros[1].Substring(6); 
            
            
-            this.BackColor = (Color)new ColorConverter().ConvertFromString(parametros[0].Substring(6,16));
+            this.BackColor = (Color)new ColorConverter().ConvertFromString(parametros[0].Substring(6));
 
 
         }
