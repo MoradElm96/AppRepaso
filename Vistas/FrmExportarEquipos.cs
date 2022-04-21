@@ -49,7 +49,15 @@ namespace AppRepaso.Vistas
 
             List<Equipo> listaEquipos =  Controladores.ControladorEquipos.GetEquipos();
 
-            Controladores.ControladorEquipos.guardarXml(listaEquipos, ruta);
+            if (listaEquipos == null)
+            {
+                MessageBox.Show("No se ha selecionado ningun equipo");//duda
+            } else { Controladores.ControladorEquipos.guardarXml(listaEquipos, ruta);
+
+                MessageBox.Show("La operacion se ha realizado existosamente");
+
+            }
+           
             
 
         }

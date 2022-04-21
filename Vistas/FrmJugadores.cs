@@ -32,7 +32,7 @@ namespace AppRepaso
             listBox1.ValueMember = "idEquipo";
             //añadir evento, poner poraqui mejor, 
             this.listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
-
+            //preguntar como no hacerque se seleccione por defecto
 
         }
 
