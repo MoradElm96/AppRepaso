@@ -75,5 +75,27 @@ namespace AppRepaso.Vistas
                 frmExportarEquipos.Focus();
             }
         }
+
+        private void importarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmImportarEquipos frmImportarEquipos;
+            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmImportarEquipos)))
+            {
+                frmImportarEquipos = new FrmImportarEquipos();
+                frmImportarEquipos.MdiParent = this;
+                frmImportarEquipos.Show();
+
+            }
+            else
+            {  //para si esta minimizado volver a maximizarlo
+                frmImportarEquipos = (FrmImportarEquipos)ControladorFormularios.RecuperarFormulario(typeof(FrmImportarEquipos));
+                if(frmImportarEquipos.WindowState == FormWindowState.Minimized)
+                {
+                    frmImportarEquipos.WindowState = FormWindowState.Normal;
+                }
+                frmImportarEquipos.Show();
+                frmImportarEquipos.Focus();
+            }
+        }
     }
 }

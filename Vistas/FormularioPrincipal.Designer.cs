@@ -33,11 +33,11 @@ namespace AppRepaso.Vistas
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripSplitButton();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,12 +74,6 @@ namespace AppRepaso.Vistas
             this.toolStripLabel3.Text = "Jugadores";
             this.toolStripLabel3.Click += new System.EventHandler(this.toolStripLabel3_Click);
             // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(29, 22);
-            this.toolStripLabel5.Text = "Salir";
-            // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -102,12 +96,19 @@ namespace AppRepaso.Vistas
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
             this.importarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importarToolStripMenuItem.Text = "Importar";
+            this.importarToolStripMenuItem.Click += new System.EventHandler(this.importarToolStripMenuItem_Click);
             // 
             // gestionarToolStripMenuItem
             // 
             this.gestionarToolStripMenuItem.Name = "gestionarToolStripMenuItem";
             this.gestionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestionarToolStripMenuItem.Text = "Gestionar";
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(29, 22);
+            this.toolStripLabel5.Text = "Salir";
             // 
             // FormularioPrincipal
             // 

@@ -70,6 +70,32 @@ namespace AppRepaso.Controladores
 
         }
 
+        public static List<Equipo> leerXml(String ruta)
+        {
+            List<Equipo> listaLeidos = new List<Equipo>();
+            try
+            {
+                string xml = File.ReadAllText(ruta);
+                using (var reader = new StringReader(xml))
+                {
+                    XmlSerializer serializer = new XmlSerializer(listaLeidos.GetType());
+                    listaLeidos = (List<Equipo>)serializer.Deserialize(reader);
+                }
+                    
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error leyendo xml " + e.Message);
+            }
+
+
+
+
+            return listaLeidos;
+
+
+        }
+
 
     }
 }

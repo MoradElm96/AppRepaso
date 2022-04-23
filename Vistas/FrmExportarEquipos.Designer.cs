@@ -30,7 +30,7 @@ namespace AppRepaso.Vistas
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnSelecionar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -39,18 +39,18 @@ namespace AppRepaso.Vistas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(141, 40);
+            this.label1.Location = new System.Drawing.Point(141, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre de archivo";
             // 
-            // textBox1
+            // textBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(144, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(147, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox2.Location = new System.Drawing.Point(144, 70);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(147, 20);
+            this.textBox2.TabIndex = 1;
             // 
             // btnSelecionar
             // 
@@ -66,7 +66,7 @@ namespace AppRepaso.Vistas
             // 
             this.btnExportar.Location = new System.Drawing.Point(144, 119);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(75, 23);
+            this.btnExportar.Size = new System.Drawing.Size(58, 23);
             this.btnExportar.TabIndex = 3;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
@@ -74,22 +74,23 @@ namespace AppRepaso.Vistas
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(297, 119);
+            this.btnCancelar.Location = new System.Drawing.Point(314, 119);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(58, 23);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmExportarEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(544, 238);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnSelecionar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Name = "FrmExportarEquipos";
             this.Text = "FrmExportarEquipos";
@@ -101,7 +102,7 @@ namespace AppRepaso.Vistas
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnSelecionar;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnCancelar;

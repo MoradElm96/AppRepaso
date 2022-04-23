@@ -22,19 +22,19 @@ namespace AppRepaso.Vistas
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
             {
-                var rutaAArchivo = string.Empty;
+                //var rutaAArchivo = string.Empty;
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.InitialDirectory = "c:\\";
-                saveFileDialog1.Title = "Save text Files";
+                saveFileDialog1.Title = "Save xml Files";
                 saveFileDialog1.CheckPathExists = true;
                 saveFileDialog1.DefaultExt = "xml";
                 saveFileDialog1.Filter= "Xml files (*.xml)|*.xml|All files (*.*)|*.*";
                 saveFileDialog1.FilterIndex = 2;
                 saveFileDialog1.RestoreDirectory = true;
 
-                if (saveFileDialog1.ShowDialog()== DialogResult.OK)
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    textBox1.Text = saveFileDialog1.FileName;                   
+                    textBox2.Text = saveFileDialog1.FileName;//duda como poner el nombre en vez de rutaa                   
 
                 }
 
@@ -45,7 +45,7 @@ namespace AppRepaso.Vistas
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            string ruta = textBox1.Text;
+            string ruta = textBox2.Text;
 
             List<Equipo> listaEquipos =  Controladores.ControladorEquipos.GetEquipos();
 
@@ -59,6 +59,12 @@ namespace AppRepaso.Vistas
             }
            
             
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
 
         }
     }
