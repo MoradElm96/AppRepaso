@@ -32,12 +32,14 @@ namespace AppRepaso.Vistas
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripSplitButton();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.gestionarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@ namespace AppRepaso.Vistas
             this.toolStripLabel5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(808, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -67,13 +69,6 @@ namespace AppRepaso.Vistas
             this.toolStripLabel2.Size = new System.Drawing.Size(46, 22);
             this.toolStripLabel2.Text = "Edicion";
             // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(60, 22);
-            this.toolStripLabel3.Text = "Jugadores";
-            this.toolStripLabel3.Click += new System.EventHandler(this.toolStripLabel3_Click);
-            // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -83,6 +78,7 @@ namespace AppRepaso.Vistas
             this.toolStripLabel4.Name = "toolStripLabel4";
             this.toolStripLabel4.Size = new System.Drawing.Size(65, 22);
             this.toolStripLabel4.Text = "Equipos";
+            this.toolStripLabel4.ButtonClick += new System.EventHandler(this.toolStripLabel4_ButtonClick);
             // 
             // exportarToolStripMenuItem
             // 
@@ -110,11 +106,36 @@ namespace AppRepaso.Vistas
             this.toolStripLabel5.Size = new System.Drawing.Size(29, 22);
             this.toolStripLabel5.Text = "Salir";
             // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestionarJugadoresToolStripMenuItem,
+            this.nuevoJugadorToolStripMenuItem});
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(76, 22);
+            this.toolStripLabel3.Text = "Jugadores";
+            this.toolStripLabel3.ButtonClick += new System.EventHandler(this.toolStripLabel3_ButtonClick);
+            this.toolStripLabel3.Click += new System.EventHandler(this.toolStripLabel3_Click);
+            // 
+            // gestionarJugadoresToolStripMenuItem
+            // 
+            this.gestionarJugadoresToolStripMenuItem.Name = "gestionarJugadoresToolStripMenuItem";
+            this.gestionarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestionarJugadoresToolStripMenuItem.Text = "Gestionar Jugadores";
+            this.gestionarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.gestionarJugadoresToolStripMenuItem_Click);
+            // 
+            // nuevoJugadorToolStripMenuItem
+            // 
+            this.nuevoJugadorToolStripMenuItem.Name = "nuevoJugadorToolStripMenuItem";
+            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
+            this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.nuevoJugadorToolStripMenuItem_Click);
+            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(808, 466);
             this.Controls.Add(this.toolStrip1);
             this.IsMdiContainer = true;
             this.Name = "FormularioPrincipal";
@@ -131,11 +152,13 @@ namespace AppRepaso.Vistas
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.ToolStripSplitButton toolStripLabel4;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSplitButton toolStripLabel3;
+        private System.Windows.Forms.ToolStripMenuItem gestionarJugadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoJugadorToolStripMenuItem;
     }
 }

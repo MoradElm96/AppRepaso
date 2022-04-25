@@ -27,29 +27,7 @@ namespace AppRepaso.Vistas
         private void toolStripLabel3_Click(object sender, EventArgs e)
         {
 
-            FrmJugadores form1;
-
-
-            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmJugadores)))
-            {
-                form1 = new FrmJugadores();
-                form1.MdiParent = this;
-                //para maximizar
-                form1.WindowState = FormWindowState.Maximized;
-                form1.Show();
-            }
-            else
-            {
-                form1 = (FrmJugadores)ControladorFormularios.RecuperarFormulario(typeof(FrmJugadores));
-                if (form1.WindowState == FormWindowState.Minimized)
-                {
-                    form1.WindowState = FormWindowState.Normal;
-                }
-                form1.Show();
-                form1.Focus();
-            }
-            
-            //Si se pulsa la opción Jugadores se debe mostrar el formulario del DIA 1 maximizado. Si el formulario ya estaba abierto no se debe abrir uno nuevo
+           
         }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +74,71 @@ namespace AppRepaso.Vistas
                 frmImportarEquipos.Show();
                 frmImportarEquipos.Focus();
             }
+        }
+
+        private void toolStripLabel4_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nuevoJugadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoJugador frmNuevoJugador;
+            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmNuevoJugador)))
+            {
+                frmNuevoJugador = new FrmNuevoJugador();
+                frmNuevoJugador.MdiParent = this;
+                frmNuevoJugador.WindowState = FormWindowState.Maximized;
+                frmNuevoJugador.Show();
+
+            }
+            else
+            {  //para si esta minimizado volver a maximizarlo
+                frmNuevoJugador = (FrmNuevoJugador)ControladorFormularios.RecuperarFormulario(typeof(FrmNuevoJugador));
+                if (frmNuevoJugador.WindowState == FormWindowState.Minimized)
+                {
+                    frmNuevoJugador.WindowState = FormWindowState.Normal;
+                }
+                frmNuevoJugador.Show();
+                frmNuevoJugador.Focus();
+            }
+        }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel3_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gestionarJugadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmJugadores form1;
+
+
+            if (!ControladorFormularios.EstaFormularioAbierto(typeof(FrmJugadores)))
+            {
+                form1 = new FrmJugadores();
+                form1.MdiParent = this;
+                //para maximizar
+                form1.WindowState = FormWindowState.Maximized;
+                form1.Show();
+            }
+            else
+            {
+                form1 = (FrmJugadores)ControladorFormularios.RecuperarFormulario(typeof(FrmJugadores));
+                if (form1.WindowState == FormWindowState.Minimized)
+                {
+                    form1.WindowState = FormWindowState.Normal;
+                }
+                form1.Show();
+                form1.Focus();
+            }
+
+            //Si se pulsa la opción Jugadores se debe mostrar el formulario del DIA 1 maximizado. Si el formulario ya estaba abierto no se debe abrir uno nuevo
         }
     }
 }

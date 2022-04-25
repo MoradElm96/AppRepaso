@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppRepaso.Controladores
 {
@@ -152,6 +153,49 @@ namespace AppRepaso.Controladores
                 Console.WriteLine("Error al leer sueldos " + e.Message);
             }
             return resultado;
+        }
+
+
+
+        public bool insertarJugadores(Jugador jugador)
+        {
+            bool respuesta = true;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+
+                MySqlConnection cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                MySqlCommand comando = cnn.CreateCommand();
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "INSERT INTO jugadores (dni,nombre,apellidos,foto,fechaNacimiento,fechaContratacion,sueldo,idEquipo) Values (@dni,@nombre,@apellidos,@foto,@fechaNacimiento,@fechaContratacion,@sueldo,@idEquipo)";
+                comando.Parameters.AddWithValue("@dni", jugador.dni);
+                comando.Parameters.AddWithValue("@nombre", jugador.nombre );
+                comando.Parameters.AddWithValue("@apellidos", jugador.apellidos);
+                comando.Parameters.AddWithValue("@foto", jugador.foto);
+                comando.Parameters.AddWithValue("@fechaNacimiento", jugador.fechaNacimiento);
+                comando.Parameters.AddWithValue("@fechaContratacion", jugador.fechaContratacion);
+                comando.Parameters.AddWithValue("@sueldo", jugador.sueldo);
+                comando.Parameters.AddWithValue("@idEquipo", jugador.idEquipo);
+                comando.Prepare();
+                MySqlDataAdapter adaptador = new MySqlDataAdapter();
+                adaptador.InsertCommand = comando;
+                if (adaptador.InsertCommand.ExecuteNonQuery() == 0)
+                {
+                    respuesta = false;
+                    MessageBox.Show("no hay jugadores  que insertar");
+                }
+
+                comando.Dispose();
+                cnn.Close();
+            }
+            catch (Exception en)
+            {
+                Console.WriteLine("Error al insertar" + en.Message);
+                respuesta = false;
+            }
+            return respuesta;
+
         }
 
 

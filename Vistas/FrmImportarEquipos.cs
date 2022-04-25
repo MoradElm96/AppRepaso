@@ -62,9 +62,15 @@ namespace AppRepaso.Vistas
             List<Equipo> listaleidos = Controladores.ControladorEquipos.leerXml(ruta);
 
 
-            if (listaleidos == null)
+
+            if (ruta == null)//duda, no funciona
             {
-                MessageBox.Show("No se ha encontrado nigun  equipo");//duda
+                MessageBox.Show("no se ha seleccionado ningun archivo");
+
+            }
+            else if (listaleidos == null)
+            {
+                MessageBox.Show("No se ha encontrado nigun  equipo"); //duda
             }
             else
             {
@@ -80,9 +86,9 @@ namespace AppRepaso.Vistas
                     Equipo equipo = new Equipo(equipos.idEquipo, equipos.nombre, equipos.logo, equipos.deporte);
                     if (new Controladores.ControladorEquipos().insertarEquipo(equipo))
                     {
-                       
+
                         contadorCambiados++;
-                      
+
 
                     }
                     else
@@ -97,9 +103,9 @@ namespace AppRepaso.Vistas
 
 
             }
-         
 
 
+            //duda como hacer control personalizado
 
         }
 
@@ -115,5 +121,5 @@ namespace AppRepaso.Vistas
 
     }
 
-    }
+}
 

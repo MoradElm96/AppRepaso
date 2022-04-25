@@ -134,6 +134,12 @@
     <Compile Include="Vistas\FormularioPrincipal.Designer.cs">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\FrmNuevoJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FrmNuevoJugador.Designer.cs">
+      <DependentUpon>FrmNuevoJugador.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Vistas\FrmExportarEquipos.resx">
       <DependentUpon>FrmExportarEquipos.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FrmNuevoJugador.resx">
+      <DependentUpon>FrmNuevoJugador.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="esportDataSet.xsc">
       <DependentUpon>esportDataSet.xsd</DependentUpon>
