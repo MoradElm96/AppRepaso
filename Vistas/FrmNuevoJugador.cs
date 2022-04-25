@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,16 +36,28 @@ namespace AppRepaso.Vistas
             double sueldo = double.Parse(numericUpDown1Sueldo.Value.ToString());
             int idEquipo = (int)listBox1IdEquipo.SelectedValue;
 
-            Jugador jugador = new Jugador(dni,nombre,apellidos,foto,fechaNacimiento,fechaContratacion,sueldo);
+            Regex rxDni = new Regex(@"/^[0-9]{8}[A-Z]$/i");//problema al validar dni
 
-           
-            if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
+            if (!rxDni.IsMatch(dni))
+            {
+                MessageBox.Show("dni incorrecto");
+            }
+            else
             {
 
+                Jugador jugador = new Jugador(dni, nombre, apellidos, foto, fechaNacimiento, fechaContratacion, sueldo, idEquipo);
+
+                if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
+            {
                 MessageBox.Show("jugador contratado");
+                }
+                else { MessageBox.Show("error al insertar jugador"); }
 
 
             }
+
+           
+          
             
         }
 
