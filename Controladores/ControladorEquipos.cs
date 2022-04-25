@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace AppRepaso.Controladores
@@ -88,14 +89,56 @@ namespace AppRepaso.Controladores
                 Console.WriteLine("Error leyendo xml " + e.Message);
             }
 
-
-
-
             return listaLeidos;
 
 
         }
 
 
+        public bool insertarEquipo(Equipo equipo)
+        {
+            bool respuesta = true;
+            try
+            {
+               string connectionString = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
+
+                MySqlConnection cnn = new MySqlConnection(connectionString);
+                cnn.Open();
+                MySqlCommand comando = cnn.CreateCommand();
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = "INSERT INTO equipos (idEquipo,nombre,logo,deporte) Values (@idEquipo,@nombre,@logo,@deporte)";
+                comando.Parameters.AddWithValue("@idEquipo", equipo.idEquipo);
+                comando.Parameters.AddWithValue("@nombre", equipo.nombre);
+                comando.Parameters.AddWithValue("@logo", equipo.logo);
+                comando.Parameters.AddWithValue("@deporte", equipo.deporte);
+                comando.Prepare();
+                MySqlDataAdapter adaptador = new MySqlDataAdapter();
+                adaptador.InsertCommand = comando;
+                if (adaptador.InsertCommand.ExecuteNonQuery() == 0)
+                {
+                    respuesta = false;
+                    MessageBox.Show("no hay equipos que insertar, revise el xml");
+                }
+
+                comando.Dispose();
+                cnn.Close();
+            }
+            catch (Exception en)
+            {
+                Console.WriteLine("Error al insertar" + en.Message);
+                respuesta = false;
+            }
+            return respuesta;
+
+        }
+           
+        }
+
+
     }
-}
+
+
+
+
+    
+

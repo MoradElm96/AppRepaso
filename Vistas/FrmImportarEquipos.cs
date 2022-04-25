@@ -1,7 +1,9 @@
 ﻿using AppRepaso.Clases;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -26,11 +28,11 @@ namespace AppRepaso.Vistas
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
             {
-               // var rutaAArchivo = string.Empty;
+                // var rutaAArchivo = string.Empty;
 
                 OpenFileDialog openFileDialog = new OpenFileDialog();
 
-               
+
 
                 openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Title = "Open xml Files";
@@ -55,30 +57,63 @@ namespace AppRepaso.Vistas
         private void btnImportar_Click(object sender, EventArgs e)
         {
 
-            string ruta =    textBox1.Text;
+            string ruta = textBox1.Text;
 
             List<Equipo> listaleidos = Controladores.ControladorEquipos.leerXml(ruta);
-            
+
+
             if (listaleidos == null)
             {
                 MessageBox.Show("No se ha encontrado nigun  equipo");//duda
             }
             else
             {
-                foreach (var equipos in listaleidos) {
+                int contadorCambiados = 0;
+                foreach (var equipos in listaleidos)
+                {
                     Console.WriteLine(equipos.idEquipo);
                     Console.WriteLine(equipos.nombre);
                     Console.WriteLine(equipos.logo);
                     Console.WriteLine(equipos.deporte);
-                    //preguntar por que el id sale cero todo el rato y si en hay que saber la estructura del xml
+
+
+                    Equipo equipo = new Equipo(equipos.idEquipo, equipos.nombre, equipos.logo, equipos.deporte);
+                    if (new Controladores.ControladorEquipos().insertarEquipo(equipo))
+                    {
+                       
+                        contadorCambiados++;
+                      
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar");
+                    }
                 }
 
-                
+                MessageBox.Show("Se han insertado " + contadorCambiados.ToString() + " equipos, insertados");
+                this.Close();
 
-                MessageBox.Show("La operacion se ha realizado existosamente");
-                
+
 
             }
+         
+
+
+
         }
+
+        //preguntar por que el id sale cero todo el rato y si en hay que saber la estructura del xml
+
+
+
+
+
+
+
+
+
     }
-}
+
+    }
+
