@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -30,35 +31,43 @@ namespace AppRepaso.Vistas
             string dni = textBoxDni.Text;
             string nombre = textBoxNombre.Text;
             string apellidos = textBoxApellidos.Text;
-            string foto = pictureBox1Foto.Name;
+            string foto = pictureBox1Foto.Name;//duda como guardar ruta
             DateTime fechaNacimiento = dateTimePicker1Nacimiento.Value;
             DateTime fechaContratacion = dateTimePicker2Contratacion.Value;
             double sueldo = double.Parse(numericUpDown1Sueldo.Value.ToString());
             int idEquipo = (int)listBox1IdEquipo.SelectedValue;
 
-            Regex rxDni = new Regex(@"/^[0-9]{8}[A-Z]$/i");//problema al validar dni
 
-            if (!rxDni.IsMatch(dni))
+
+
+
+
+            /*Regex rxDni = new Regex("^(([A-Z]\\d{8})|(\\d{8}[A-Z]))$");//problema al validar dni
+
+            if (!rxDni.IsMatch(dni.ToString()))
             {
                 MessageBox.Show("dni incorrecto");
             }
             else
-            {
+            {  }*/
 
-                Jugador jugador = new Jugador(dni, nombre, apellidos, foto, fechaNacimiento, fechaContratacion, sueldo, idEquipo);
+            Jugador jugador = new Jugador(dni, nombre, apellidos, foto, fechaNacimiento, fechaContratacion, sueldo, idEquipo);
 
-                if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
+            if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
             {
                 MessageBox.Show("jugador contratado");
-                }
-                else { MessageBox.Show("error al insertar jugador"); }
-
-
+            }
+            else
+            {
+                MessageBox.Show("error al insertar jugador");
             }
 
-           
-          
-            
+
+
+
+
+
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -68,7 +77,7 @@ namespace AppRepaso.Vistas
 
         private void listBox1IdEquipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-         
+
         }
 
 
@@ -86,7 +95,33 @@ namespace AppRepaso.Vistas
 
         }
 
+        public void button1_Click(object sender, EventArgs e)
+        {
+            var rutaArchivo = string.Empty;
+
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "img files (*.png)|*.png|(*.jpg)|*.jpg|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    rutaArchivo = openFileDialog.FileName;
+                    pictureBox1Foto.Image = Image.FromFile(rutaArchivo);
+                    /* string foto = ".//imagenes//" + openFileDialog.SafeFileName;
+                     pictureBox1Foto.Tag = foto;
+                     if (!File.Exists(foto))
+                     {
+                         File.Copy(rutaArchivo, foto);
+                     }*/
+
+                }
+            }
+
+
+        }
+
     }
-
-
 }
