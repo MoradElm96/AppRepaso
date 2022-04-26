@@ -31,7 +31,7 @@ namespace AppRepaso.Vistas
             string dni = textBoxDni.Text;
             string nombre = textBoxNombre.Text;
             string apellidos = textBoxApellidos.Text;
-            string foto = pictureBox1Foto.Name;//duda como guardar ruta
+            string foto = pictureBox1Foto.Tag.ToString();//duda como guardar ruta
             DateTime fechaNacimiento = dateTimePicker1Nacimiento.Value;
             DateTime fechaContratacion = dateTimePicker2Contratacion.Value;
             double sueldo = double.Parse(numericUpDown1Sueldo.Value.ToString());
@@ -110,17 +110,11 @@ namespace AppRepaso.Vistas
                 {
                     rutaArchivo = openFileDialog.FileName;
                     pictureBox1Foto.Image = Image.FromFile(rutaArchivo);
-                    /* string foto = ".//imagenes//" + openFileDialog.SafeFileName;
-                     pictureBox1Foto.Tag = foto;
-                     if (!File.Exists(foto))
-                     {
-                         File.Copy(rutaArchivo, foto);
-                     }*/
+                    pictureBox1Foto.Tag = rutaArchivo; 
+
 
                 }
             }
-
-
         }
 
     }
