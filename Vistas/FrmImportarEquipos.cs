@@ -44,7 +44,8 @@ namespace AppRepaso.Vistas
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox1.Text = openFileDialog.FileName;  //SafeFileName;//para solo el nombre del archivo
+                    textBox1.Text = openFileDialog.SafeFileName;  //SafeFileName;//para solo el nombre del archivo
+                    textBox1.Tag = openFileDialog.FileName;//trabajar con el tag
                     //si no pongo file no me deja cojer la ruta
 
                 }
@@ -57,7 +58,7 @@ namespace AppRepaso.Vistas
         private void btnImportar_Click(object sender, EventArgs e)
         {
 
-            string ruta = textBox1.Text;
+            string ruta = textBox1.Tag.ToString();
 
             List<Equipo> listaleidos = Controladores.ControladorEquipos.leerXml(ruta);
 

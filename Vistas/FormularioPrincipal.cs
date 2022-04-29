@@ -140,5 +140,10 @@ namespace AppRepaso.Vistas
 
             //Si se pulsa la opción Jugadores se debe mostrar el formulario del DIA 1 maximizado. Si el formulario ya estaba abierto no se debe abrir uno nuevo
         }
+
+        private void toolStripLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,7 +31,10 @@ namespace AppRepaso.Vistas
             string dni = textBoxDni.Text;
             string nombre = textBoxNombre.Text;
             string apellidos = textBoxApellidos.Text;
-            string foto = pictureBox1Foto.Tag.ToString();//duda como guardar ruta
+            string foto = "fotodefecto.png";
+            if (pictureBox1Foto.Tag!=null) {
+                pictureBox1Foto.Tag.ToString();//duda como guardar ruta
+            }
             DateTime fechaNacimiento = dateTimePicker1Nacimiento.Value;
             DateTime fechaContratacion = dateTimePicker2Contratacion.Value;
             double sueldo = double.Parse(numericUpDown1Sueldo.Value.ToString());
@@ -42,27 +45,27 @@ namespace AppRepaso.Vistas
 
 
 
-            /*Regex rxDni = new Regex("^(([A-Z]\\d{8})|(\\d{8}[A-Z]))$");//problema al validar dni
+            Regex rxDni = new Regex(@"^(([A-Z]{1}\d{8})|(\d{8}[A-Z]{1}))$");//problema al validar dni
 
             if (!rxDni.IsMatch(dni.ToString()))
             {
                 MessageBox.Show("dni incorrecto");
             }
             else
-            {  }*/
-
-            Jugador jugador = new Jugador(dni, nombre, apellidos, foto, fechaNacimiento, fechaContratacion, sueldo, idEquipo);
-
-            if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
             {
-                MessageBox.Show("jugador contratado");
-            }
-            else
-            {
-                MessageBox.Show("error al insertar jugador");
-            }
 
+                Jugador jugador = new Jugador(dni, nombre, apellidos, foto, fechaNacimiento, fechaContratacion, sueldo, idEquipo);
 
+                if (new Controladores.ControladorJugadores().insertarJugadores(jugador))
+                {
+                    MessageBox.Show("jugador contratado");
+                }
+                else
+                {
+                    MessageBox.Show("error al insertar jugador");
+                }
+
+            }
 
 
 
